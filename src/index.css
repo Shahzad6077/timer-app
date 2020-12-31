@@ -167,12 +167,12 @@ code {
 
 /* MEDIA QUERY */
 @media screen and (max-width: 360px) {
-  body {
-    background-color: var(--lightblack);
-  }
 }
 
 @media screen and (max-width: 480px) {
+  body {
+    background-color: var(--lightblack);
+  }
   .App {
     padding: 1rem;
   }
