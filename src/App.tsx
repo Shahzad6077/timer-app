@@ -1,24 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TimerView from './Components/TimerView';
+import Button from './Components/Button';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TimerView />
+      <div className="btn-wrapper">
+        <Button name="Start" classes="btn-inset" />
+        <Button name="Reset" classes="btn-outset" />
+        <Button name="Stop" classes="btn-outset" style={{ flexBasis: "100%", marginTop: "16px" }} />
+      </div>
     </div>
   );
 }

@@ -1,13 +1,179 @@
+:root {
+  --black: #07080a;
+  --lightblack: #222326;
+  --darkgray: #3b3d45;
+  --gray: #4e5267;
+  --brown: #432f3a;
+  --smoke: #798885;
+  --blue: #5752af;
+  --red: #b02d4a;
+  --white: #dbdcdf;
+  --yellow: #413e38;
+
+  --grey: #41455a;
+  --grey1: #4c5166;
+  --grey2: #778196;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: var(--darkgray);
+
+  color: var(--white);
+
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 200ms ease-in-out;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+*,
+::after,
+::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.App {
+  background-color: var(--lightblack);
+  padding: 2rem;
+  border-radius: 24px;
+  width: min(99vw, 400px);
+  /* height: min(99vw, 620px); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 200ms ease-in-out;
+}
+
+.timerView {
+  width: min(100%, 320px);
+  height: min(88vw, 320px);
+  background-color: var(--lightblack);
+
+  border-radius: 50%;
+  box-shadow: 19px 19px 39px #1b1b1e, -19px -19px 39px #292b2e;
+  padding: 5%;
+  overflow: hidden;
+  position: relative;
+}
+.dashedWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 100%;
+  width: 100%;
+  padding: 4px;
+}
+.dashedWrapper svg {
+  height: 100%;
+  width: 100%;
+}
+.dashedWrapper circle {
+  fill: transparent;
+  stroke: var(--grey2);
+  stroke-width: 3;
+}
+.dashed {
+  stroke-dasharray: 1, 7.5;
+}
+.wrapper {
+  width: 87%;
+  height: 87%;
+  border-radius: 50%;
+  /* border: 1px solid; */
+  overflow: hidden;
+
+  border-radius: 50%;
+  background: #222326;
+  box-shadow: 5px 5px 22px #151517, -5px -5px 22px #2f3135;
+}
+.digitView {
+  background-color: var(--black);
+  width: 87%;
+  height: 87%;
+  border-radius: 50%;
+  overflow: hidden;
+  font-family: "Orbitron";
+}
+.digitView h3 {
+  letter-spacing: 4px;
+  font-size: min(6vw, 32px);
+}
+/* Button styling */
+.btn-wrapper {
+  margin-top: max(1rem, min(2.5vw, 4rem));
+
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: wrap;
+}
+
+.btn {
+  outline: transparent;
+  padding: 4px;
+  /* width: 140px; */
+  height: 55px;
+  border: none;
+  font-family: "Staatliches";
+  letter-spacing: 2px;
+  font-size: max(14px, min(3vw, 18px));
+  border-radius: 32px;
+  background-color: var(--lightblack);
+  cursor: pointer;
+  flex-basis: 45%;
+}
+
+.btn-inset {
+  color: var(--blue);
+
+  box-shadow: inset 4px 4px 6px 1px #1b1b1f, inset -1px -2px 4px 0px #3b3d45b3;
+
+  background: #222326;
+  box-shadow: inset 5px 5px 8px #191a1c, inset -5px -5px 8px #2b2c30;
+}
+.btn-outset {
+  color: var(--red);
+
+  background: #222326;
+  box-shadow: 8px 8px 26px #171719, -8px -8px 26px #2d2f33;
+}
+
+/* MEDIA QUERY */
+@media screen and (max-width: 360px) {
+  body {
+    background-color: var(--lightblack);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .App {
+    padding: 1rem;
+  }
 }
