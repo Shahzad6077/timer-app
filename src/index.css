@@ -69,10 +69,12 @@ code {
 }
 
 .timerView {
-  width: min(100%, 320px);
-  height: min(88vw, 320px);
+  /* width: min(88vw, 320px); */
+  max-width: 320px;
+  width: 88vw;
+  max-height: 320px;
+  height: 88vw;
   background-color: var(--lightblack);
-
   border-radius: 50%;
   box-shadow: 19px 19px 39px #1b1b1e, -19px -19px 39px #292b2e;
   padding: 5%;
