@@ -26,3 +26,13 @@ export const toHHMMSS = function (centisec: number): string {
     return minutes + ":" + seconds + ":" + centiSeconds;
   }
 };
+
+// Native Function is HERE to GET 2 digits of value by prefix 0.
+
+/*
+parseInt(6).toLocaleString("en-US", {
+      minimumIntegerDigits: 2,
+      useGrouping: false,
+});
+Results: 06
+*/
