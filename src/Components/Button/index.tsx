@@ -13,9 +13,9 @@ type Props = {
     disabled?: boolean;
     onClick?: (e: MouseEvent) => void
 }
-const Button: React.FC<Props> = ({ classes, name, style, disabled, onClick }) => {
+const Button: React.FC<Props> = ({ id, classes, name, style, disabled, onClick }) => {
     return (
-        <button className={`btn ${classes}`} style={style} disabled={disabled} onClick={onClick}>
+        <button id={id} className={`btn ${classes}`} style={style} disabled={disabled} onClick={onClick}>
             {name}
         </button>
     );

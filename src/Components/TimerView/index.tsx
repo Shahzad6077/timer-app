@@ -1,6 +1,10 @@
+import { type } from 'os';
 import React from 'react';
-
-const TimerView: React.FC = () => {
+import { toHHMMSS } from "./../../Helpers"
+type Props = {
+    centiSeconds: number
+}
+const TimerView: React.FC<Props> = ({ centiSeconds }) => {
     return (
         <div className="timerView flex-center">
             <div className="dashedWrapper">
@@ -11,7 +15,7 @@ const TimerView: React.FC = () => {
             <div className="wrapper flex-center">
                 <div className="digitView flex-center">
                     <h3>
-                        00:15:04
+                        {toHHMMSS(centiSeconds)}
                     </h3>
                 </div>
             </div>
