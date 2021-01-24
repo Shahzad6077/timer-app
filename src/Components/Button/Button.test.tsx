@@ -3,10 +3,13 @@ import { mount, MountRendererProps, ReactWrapper, shallow } from "enzyme";
 import Button from "./index";
 
 describe('Button Comp', () => {
-    const container = shallow(<Button id="testing" name="ali" onClick={(e) => { console.log("Baby why click me? ") }} />);
-    let mountedContainer = mount(<Button id="testing" name="ali" onClick={(e) => { console.log("Baby why click me? ") }} />);
+    const mockCallBack = jest.fn();
+    const container = shallow(<Button id="testing" name="ali" onClick={mockCallBack} />);
+    let mountedContainer: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
-
+    beforeEach(() => {
+        mountedContainer = mount(<Button id="testing" name="ali" onClick={mockCallBack} />)
+    })
     it("should render a <Button />", () => {
         expect(container.find("button").length).toEqual(1);
     });
@@ -20,14 +23,22 @@ describe('Button Comp', () => {
     });
 
     it("show console.log on Click the button. ", () => {
-        const spy = jest.spyOn(mountedContainer, 'props');
-        mountedContainer.instance().forceUpdate();
 
-        expect(spy).toHaveBeenCalledTimes(0)
+
+        expect(mockCallBack.mock.calls.length).toEqual(0)
         mountedContainer.simulate('click');
-        expect(spy).toHaveBeenCalledTimes(1)
+        expect(mockCallBack.mock.calls.length).toEqual(1)
 
     });
 
+    it("Click the button while it's disabled So Call's should be 0. ", () => {
+        const spy = jest.fn();
+        const comp = mount(<Button id="testing" name="ali" onClick={spy} disabled={true} />)
+
+        expect(spy.mock.calls.length).toEqual(0)
+        comp.simulate('click');
+        expect(spy.mock.calls.length).toEqual(0)
+
+    });
 
 });
